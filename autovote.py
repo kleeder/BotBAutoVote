@@ -49,10 +49,7 @@ def check_user(entry_id):
 
 def check_if_voter(entry_id, botbr_id):
     entry_botbr = check_user(entry_id)
-    if botbr_id == entry_botbr:
-        return True
-    else:
-        return False
+    return botbr_id == entry_botbr
 
 
 with open(csv_name, newline='') as csvfile:
