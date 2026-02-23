@@ -17,15 +17,15 @@ csv_name = "votes.csv"
 
 # creating the cookie-dict to use when making the post-request
 cookies = {
-        "user_id": user_id,
-        "serial": serial,
-        "botbr_id": botbr_id
-    }
+    "user_id":  user_id,
+    "serial":   serial,
+    "botbr_id": botbr_id
+}
 
 
 # the post-request is created and sent to botb
 def make_post_request(entry_id, cat1, cat2, cat3, cat4, cat5):
-    url = "https://battleofthebits.org/vote_record/Save/{}/".format(entry_id)
+    url = "https://battleofthebits.com/vote_record/Save/{}/".format(entry_id)
     data = {
         'cat1': cat1,
         'cat2': cat2,
@@ -42,7 +42,7 @@ def make_post_request(entry_id, cat1, cat2, cat3, cat4, cat5):
 
 
 def check_user(entry_id):
-    url = "https://battleofthebits.org/api/v1/entry/load/{}".format(entry_id)
+    url = "https://battleofthebits.com/api/v1/entry/load/{}".format(entry_id)
     json_data = requests.get(url).json()
     return str(json_data['botbr']['id'])
 
@@ -59,6 +59,3 @@ with open(csv_name, newline='') as csvfile:
             pass
         else:
             make_post_request(row[0], row[1], row[2], row[3], row[4], row[5])
-
-
-
